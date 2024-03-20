@@ -1,0 +1,12 @@
+#Nombre del workflow
+name: Mi Workflow de Pruebas
+
+#Definimos los disparadores de eventos
+on: [push]
+
+#Trabajos que se van a ejecutar EN PARALELO de forma predeterminada. Los pasos si se ejecutan de forma secuencial.
+jobs:
+    say-hello:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Hola mundo, esto es una acción de GitHub!"
