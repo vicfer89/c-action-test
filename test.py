@@ -1,7 +1,7 @@
 import os, subprocess
 
 # Configuraciones
-TEST_DIR = "/tests"         # Directorio de pruebas
+TEST_DIR = "."         # Directorio de pruebas
 CODE_FILE = "main.c"        # Nombre del fichero a probar
 COMPILER_TIMEOUT = 10.0     # Timeout de compilación en segundos
 RUN_TIMEOUT = 10.0          # Timeout de ejecución en segundos
