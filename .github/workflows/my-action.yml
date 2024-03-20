@@ -14,19 +14,20 @@ jobs:
               run: echo "Hola mundo, esto es una acción de GitHub!" # Ejecuta el comando de echo en el OS Ubuntu que hemos dicho
     
     # Trabajo 2 - Ejecuta el script de python
-    needs: [say-hello] # Espera a que acabe Say Hello, para que no se hagan de forma secuencial.
-    runs-on: ubuntu-latest
-    steps:
-        # Usa el repositorio github.com/action/checkout para hacer checkout del repositorio que queremos comprobar
-        - name: Check out this repo
-          uses: actions/checkout@v3
-        
-        # Instalamos los paquetes necesarios
-        - name: Instalacion de dependencias
-          run: sudo apt install -y build-essential python3 # Instala las dependencias de gcc y python
+    build-and-test:
+        needs: [say-hello] # Espera a que acabe Say Hello, para que no se hagan de forma secuencial.
+        runs-on: ubuntu-latest
+        steps:
+            # Usa el repositorio github.com/action/checkout para hacer checkout del repositorio que queremos comprobar
+            - name: Check out this repo
+              uses: actions/checkout@v3
+            
+            # Instalamos los paquetes necesarios
+            - name: Instalacion de dependencias
+              run: sudo apt install -y build-essential python3 # Instala las dependencias de gcc y python
 
-        - run: pwd # Comprobamos en que directorio estamos de la máquina virtual
+            - run: pwd # Comprobamos en que directorio estamos de la máquina virtual
 
-        - name: Ejecución de pruebas
-          run: python3 test.py
+            - name: Ejecución de pruebas
+              run: python3 test.py
 
